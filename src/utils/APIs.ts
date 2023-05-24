@@ -1,13 +1,14 @@
-const api_base = process.env.REACT_APP_API_BASE
+import config from '../config'
+
+const api_base_url = config.REACT_APP_BASE_URL
 const APIs = {
-  dateFormat: 'MMMM DD, YYYY',
-  BASE_URL: process.env.REACT_APP_BASE_URL,
+  BASE_URL: config.REACT_APP_BASE_URL,
 
   // auth
-  LOGIN: api_base + '/login',
-  ACCOUNT: api_base + '/account',
-  LOGOUT: api_base + '/logout',
-  REGISTER: api_base + '/register'
+  LOGIN: api_base_url + '/login',
+  ACCOUNT: api_base_url + '/account',
+  LOGOUT: api_base_url + '/logout',
+  REGISTER: api_base_url + '/register'
 }
 
 export default APIs
