@@ -4,8 +4,11 @@ import FormInput from './forminput'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import { Form } from 'react-bootstrap'
+import { UserRegistrationObj } from '../../types/FormObj'
 
-type Props = {}
+type Props = {
+  handleRegister: ({}: UserRegistrationObj) => void
+}
 
 const RegistrationForm = (props: Props) => {
   const formik = useFormik({
@@ -18,7 +21,7 @@ const RegistrationForm = (props: Props) => {
     },
     validationSchema,
     onSubmit: (values, actions) => {
-      console.log({ values })
+      props.handleRegister({ ...values })
     }
   })
 
@@ -26,7 +29,7 @@ const RegistrationForm = (props: Props) => {
     <>
       <div className='col-md-4 bg-white border border-light rounded-3 p-4 shadow'>
         <div>
-          <h4 className='text-center'>Register</h4>
+          <h4 className='text-center'>Register for an account</h4>
         </div>
         <Form onSubmit={formik.handleSubmit}>
           <FormInput
@@ -95,11 +98,12 @@ const RegistrationForm = (props: Props) => {
           />
         </Form>
         <Button
+          className='mt-3'
           variant='primary'
           type='submit'
           onClick={() => formik.submitForm()}
         >
-          Submit
+          Register
         </Button>
       </div>
     </>
