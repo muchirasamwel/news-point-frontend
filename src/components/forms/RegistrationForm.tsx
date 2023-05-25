@@ -5,6 +5,7 @@ import { useFormik } from 'formik'
 import * as yup from 'yup'
 import { Form } from 'react-bootstrap'
 import { UserRegistrationObj } from '../../types/FormObj'
+import { Link } from 'react-router-dom'
 
 type Props = {
   handleRegister: ({}: UserRegistrationObj) => void
@@ -97,14 +98,18 @@ const RegistrationForm = (props: Props) => {
             {...formik.getFieldProps('confirmPassword')}
           />
         </Form>
-        <Button
-          className='mt-3'
-          variant='primary'
-          type='submit'
-          onClick={() => formik.submitForm()}
-        >
-          Register
-        </Button>
+
+        <div className='mt-3 d-flex justify-content-between align-items-center'>
+          <Button
+            className=''
+            variant='primary'
+            type='submit'
+            onClick={() => formik.submitForm()}
+          >
+            Register
+          </Button>
+          <Link to={'/login'}>Login?</Link>
+        </div>
       </div>
     </>
   )
