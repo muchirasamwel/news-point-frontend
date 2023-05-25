@@ -2,7 +2,7 @@ import Login from '../pages/auth/Login'
 import Register from '../pages/auth/Register'
 import AuthContainer from '../pages/layout/AuthContainer'
 
-const mainRoutes = {
+const loginRoutes = {
   element: <AuthContainer />,
   children: [
     {
@@ -16,4 +16,4 @@ const mainRoutes = {
   ]
 }
 
-export default mainRoutes
+export default loginRoutes
