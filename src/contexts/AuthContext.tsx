@@ -10,15 +10,16 @@ type AuthContextType = {
   user?: UserObj
   login: (credentials: UserLoginObj) => Promise<void>
   register: (userDetails: UserRegistrationObj) => Promise<void>
+  isLoggedIn: boolean
 }
 const AuthContext = createContext<AuthContextType>({} as AuthContextType)
 
 export const AuthProvider = (props: Props) => {
   const { register } = useRegisterUser()
-  const { user, login } = useLoginUser()
+  const { user, login, isLoggedIn } = useLoginUser()
 
   return (
-    <AuthContext.Provider value={{ user, login, register }}>
+    <AuthContext.Provider value={{ user, login, register, isLoggedIn }}>
       {props.children}
     </AuthContext.Provider>
   )

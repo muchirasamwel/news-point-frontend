@@ -17,7 +17,7 @@ axiosServices.interceptors.response.use(
   },
   error => {
     if (error?.response?.status == 401) {
-      localStorage.removeItem('authenticated')
+      localStorage.removeItem('isLoggedIn')
       window.location.href = '/login'
     }
     return Promise.reject(error)
