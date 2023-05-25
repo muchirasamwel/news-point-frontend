@@ -1,0 +1,14 @@
+.menu-link {
+  color: rgb(180, 180, 180) !important;
+  padding-right: var(--bs-navbar-nav-link-padding-x);
+  padding-left: var(--bs-navbar-nav-link-padding-x);
+  text-decoration: none;
+  &:hover {
+    color: #68e1fd !important;
+    font-weight: 400;
+  }
+  &.active {
+    color: #68e1fd !important;
+    font-weight: bold;
+  }
+}
