@@ -8,7 +8,8 @@ const APIs = {
   LOGIN: api_base_url + '/login',
   ACCOUNT: api_base_url + '/account',
   LOGOUT: api_base_url + '/logout',
-  REGISTER: api_base_url + '/register'
+  REGISTER: api_base_url + '/register',
+  NEWS: api_base_url + '/news'
 }
 
 export default APIs
