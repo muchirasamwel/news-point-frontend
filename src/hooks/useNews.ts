@@ -11,7 +11,7 @@ const useNews = () => {
     try {
       const response = await axios.post(APIs.NEWS, { search })
       if (response.status == 200) {
-        const fetchedNews: NewsArr = response.data
+        const fetchedNews: NewsArr = response.data.data
         setNews(fetchedNews)
       } else {
         // show error message

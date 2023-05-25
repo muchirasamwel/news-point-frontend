@@ -6,7 +6,7 @@ type Props = {}
 
 const AppContainer = (props: Props) => {
   return (
-    <div>
+    <div style={{ paddingTop: 90 }}>
       <AppNavBar />
       <Outlet />
     </div>

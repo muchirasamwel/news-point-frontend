@@ -8,7 +8,7 @@ type Props = {}
 
 const AppNavBar = (props: Props) => {
   return (
-    <Navbar variant='pills' bg='dark' expand='lg'>
+    <Navbar variant='pills' bg='dark' expand='lg' fixed='top'>
       <Container fluid>
         <Navbar.Brand href='#'>
           <Image
