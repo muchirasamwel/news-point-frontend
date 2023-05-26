@@ -30,7 +30,7 @@ const useNews = () => {
     } catch (e) {
       //show message
     }
-  }, [])
+  }, [search])
 
   return { news, getNews, search, setSearch }
 }
