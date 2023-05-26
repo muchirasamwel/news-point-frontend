@@ -6,7 +6,7 @@ import '../../styles/_news.scss'
 type Props = {}
 
 const News = (props: Props) => {
-  const { news: newsList } = useNewsData()
+  const { filteredNews: newsList } = useNewsData()
   return (
     <div className='container'>
       <div className='row md-gx-5 sm-gx-3 gy-3'>
