@@ -1,12 +1,14 @@
 import React from 'react'
-import { Container, Nav, Navbar, Image } from 'react-bootstrap'
+import { Container, Nav, Navbar, Image, NavDropdown } from 'react-bootstrap'
 import NewsSearch from '../forms/NewsSearch'
 import NavLink from './NavLink'
 import NewsFilter from '../forms/NewsFilter'
+import useAuth from '../../hooks/useAuth'
 
 type Props = {}
 
 const AppNavBar = (props: Props) => {
+  const { user, logout } = useAuth()
   return (
     <Navbar variant='pills' bg='dark' expand='lg' fixed='top'>
       <Container fluid>
@@ -31,13 +33,18 @@ const AppNavBar = (props: Props) => {
           <Nav
             className='me-auto my-2 my-lg-0'
             style={{ maxHeight: '100px' }}
-            navbarScroll
+            // navbarScroll
           >
             <NavLink path='/' title='All News' />
             <NavLink path='/profile' title='Profile' />
           </Nav>
-          <NewsSearch />
-          <NewsFilter />
+          <Nav variant='right'>
+            <NewsSearch />
+            <NewsFilter />
+            <NavDropdown title={user?.firstname} id='navbarScrollingDropdown'>
+              <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

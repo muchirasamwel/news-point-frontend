@@ -8,17 +8,16 @@ type Props = {
 type AuthContextType = {
   user?: UserObj
   login: (credentials: UserLoginObj) => Promise<void>
+  logout: () => Promise<void>
   isLoggedIn: boolean
 }
 const AuthContext = createContext<AuthContextType>({} as AuthContextType)
 
 export const AuthProvider = (props: Props) => {
-  const { user, login, isLoggedIn } = useLoginUser()
+  const auth = useLoginUser()
 
   return (
-    <AuthContext.Provider value={{ user, login, isLoggedIn }}>
-      {props.children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={auth}>{props.children}</AuthContext.Provider>
   )
 }
 export default AuthContext

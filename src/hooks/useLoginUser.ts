@@ -41,7 +41,7 @@ const useLoginUser = () => {
     try {
       const response = await axios.get(APIs.ACCOUNT)
       if (response.status == 200) {
-        const loggedUser: UserObj = response.data
+        const loggedUser: UserObj = response.data.data
         setUser(loggedUser)
       } else {
         // show error message
@@ -51,6 +51,22 @@ const useLoginUser = () => {
     }
   }
 
-  return { user, login, isLoggedIn }
+  const logout = async () => {
+    try {
+      const response = await axios.post(APIs.LOGOUT)
+      if (response.status == 200) {
+        setisLoggedIn(false)
+        localStorage.removeItem('isLoggedIn')
+        setUser({} as UserObj)
+        navigate('/login', { replace: true })
+      } else {
+        // show error message
+      }
+    } catch (e) {
+      // show error message
+    }
+  }
+
+  return { user, login, isLoggedIn, logout }
 }
 export default useLoginUser

@@ -8,7 +8,9 @@ const NavLink = (props: Props) => {
   return (
     <Link
       to={props.path}
-      className={`menu-link ${location.pathname == props.path ? 'active' : ''}`}
+      className={`menu-link d-flex justify-content-center align-items-center ${
+        location.pathname == props.path ? 'active' : ''
+      }`}
     >
       {props.title}
     </Link>
