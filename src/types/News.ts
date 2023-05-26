@@ -16,3 +16,9 @@ export type NewsFilterObj = {
 }
 
 export type NewsArr = Array<NewsObj> | []
+
+export type PrefObj = {
+  sources?: Array<string>
+  categories?: Array<string>
+  authors?: Array<string>
+}
