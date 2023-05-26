@@ -86,4 +86,4 @@
 //     categoriesOptions
 //   }
 // }
-// export default useFilterNews
+export const useFilterNews = {}

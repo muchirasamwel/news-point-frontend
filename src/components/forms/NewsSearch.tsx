@@ -8,7 +8,7 @@ const NewsSearch = (props: Props) => {
   const { setSearch } = useNewsData()
   const [searchText, setsearchText] = useState<string>('')
   return (
-    <Form className='d-flex'>
+    <div className='d-flex'>
       <Form.Control
         type='search'
         placeholder='Search'
@@ -27,7 +27,7 @@ const NewsSearch = (props: Props) => {
       >
         Search
       </Button>
-    </Form>
+    </div>
   )
 }
 
