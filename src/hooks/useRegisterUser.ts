@@ -9,7 +9,6 @@ const useRegisterUser = () => {
     try {
       const response = await axios.post(APIs.REGISTER, user)
       if (response.status == 201) {
-        console.log('redirect..')
         navigate('/login')
       } else {
         // show erorr
