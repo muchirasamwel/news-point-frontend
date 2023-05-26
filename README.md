@@ -2,7 +2,7 @@
 
 ## Start the app
 ```
-docker-compose up –build
+docker-compose up --build
 ```
 
 ## Config
