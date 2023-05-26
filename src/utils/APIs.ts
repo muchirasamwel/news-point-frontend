@@ -9,6 +9,8 @@ const APIs = {
   ACCOUNT: api_base_url + '/account',
   LOGOUT: api_base_url + '/logout',
   REGISTER: api_base_url + '/register',
+
+  UPDATE_PREFERENCES: api_base_url + '/user-preferences',
   NEWS: api_base_url + '/news'
 }
 
