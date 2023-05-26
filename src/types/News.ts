@@ -1,4 +1,5 @@
 export type NewsObj = {
+  id: string | number
   title: string
   body: string
   date: string
