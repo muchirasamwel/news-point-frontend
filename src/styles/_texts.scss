@@ -1,0 +1,14 @@
+@import "./variables.scss";
+
+.texts {
+  &-primary {
+    font-weight: bold;
+    color: $primary-color !important;
+  }
+  &-secondary {
+    color: $secondary-color !important;
+  }
+  &-grey {
+    color: $grey-color !important;
+  }
+}

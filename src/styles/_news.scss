@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 .news-card {
   border: none !important;
   img {
@@ -10,6 +12,7 @@
       opacity: 1;
     }
   }
+  
 }
 
 .fade-from-bottom {
@@ -24,8 +27,8 @@
     height: 100%;
     background: linear-gradient(
       to top,
-      rgba(255, 255, 255, 1),
-      rgba(0, 0, 0, 0)
+      rgba($light-color, 1),
+      rgba($secondary-color, 0)
     );
     z-index: 1;
     opacity: 0;

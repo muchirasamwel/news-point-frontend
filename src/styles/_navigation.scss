@@ -1,4 +1,6 @@
-.menu-link {
+@import "./variables.scss";
+.menu-link,
+#navbarScrollingDropdown {
   color: rgb(180, 180, 180) !important;
   padding-right: var(--bs-navbar-nav-link-padding-x);
   padding-left: var(--bs-navbar-nav-link-padding-x);
