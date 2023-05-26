@@ -1,16 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import './index.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import reportWebVitals from './reportWebVitals'
 import Routes from './routes'
 import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
+import { NewsProvider } from './contexts/NewsContext'
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <Routes />
+        <NewsProvider>
+          <Routes />
+        </NewsProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>

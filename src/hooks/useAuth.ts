@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import AuthContext from '../contexts/AuthContext'
 
 const useAuth = () => {
-  const { login, register, user, isLoggedIn } = useContext(AuthContext)
-  return { login, register, user, isLoggedIn }
+  const auth = useContext(AuthContext)
+  return auth
 }
 export default useAuth

@@ -1,5 +1,4 @@
 import { ReactNode, createContext } from 'react'
-import useRegisterUser from '../hooks/useRegisterUser'
 import useLoginUser from '../hooks/useLoginUser'
 import { UserLoginObj, UserObj, UserRegistrationObj } from '../types/FormObj'
 
@@ -9,19 +8,16 @@ type Props = {
 type AuthContextType = {
   user?: UserObj
   login: (credentials: UserLoginObj) => Promise<void>
-  register: (userDetails: UserRegistrationObj) => Promise<void>
+  logout: () => Promise<void>
   isLoggedIn: boolean
 }
 const AuthContext = createContext<AuthContextType>({} as AuthContextType)
 
 export const AuthProvider = (props: Props) => {
-  const { register } = useRegisterUser()
-  const { user, login, isLoggedIn } = useLoginUser()
+  const auth = useLoginUser()
 
   return (
-    <AuthContext.Provider value={{ user, login, register, isLoggedIn }}>
-      {props.children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={auth}>{props.children}</AuthContext.Provider>
   )
 }
 export default AuthContext
