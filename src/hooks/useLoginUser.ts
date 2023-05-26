@@ -8,6 +8,7 @@ import { getFromStorage, saveToStorage } from '../utils/storageHelper'
 const useLoginUser = () => {
   const [user, setUser] = useState<UserObj>()
   const [isLoggedIn, setisLoggedIn] = useState(false)
+  const [isLoading, setisLoading] = useState(false)
   useEffect(() => {
     try {
       const loggedIn = getFromStorage('isLoggedIn')
@@ -21,6 +22,8 @@ const useLoginUser = () => {
   }, [])
   const navigate = useNavigate()
   const login = async (credentials: UserLoginObj) => {
+    setisLoading(true)
+
     try {
       const response = await axios.post(APIs.LOGIN, credentials)
       if (response.status == 200) {
@@ -35,9 +38,11 @@ const useLoginUser = () => {
     } catch (e) {
       // show error message
     }
+    setisLoading(false)
   }
 
   const getUser = async () => {
+    setisLoading(true)
     try {
       const response = await axios.get(APIs.ACCOUNT)
       if (response.status == 200) {
@@ -49,9 +54,11 @@ const useLoginUser = () => {
     } catch (e) {
       // show error message
     }
+    setisLoading(false)
   }
 
   const logout = async () => {
+    setisLoading(true)
     try {
       const response = await axios.post(APIs.LOGOUT)
       if (response.status == 200) {
@@ -65,8 +72,9 @@ const useLoginUser = () => {
     } catch (e) {
       // show error message
     }
+    setisLoading(false)
   }
 
-  return { user, login, isLoggedIn, logout }
+  return { user, login, isLoggedIn, logout, isLoading }
 }
 export default useLoginUser

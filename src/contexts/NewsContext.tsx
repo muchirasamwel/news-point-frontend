@@ -1,6 +1,7 @@
 import { ReactNode, createContext } from 'react'
 import { NewsArr, NewsFilterObj } from '../types/News'
 import useNews from '../hooks/useNews'
+import Loader from '../components/Loader'
 
 type Props = {
   children: ReactNode
@@ -22,6 +23,7 @@ const NewsContext = createContext<NewsContextType>({} as NewsContextType)
 
 export const NewsProvider = (props: Props) => {
   const {
+    isLoading,
     news,
     getNews,
     search,
@@ -49,6 +51,7 @@ export const NewsProvider = (props: Props) => {
         categoriesOptions
       }}
     >
+      {isLoading && <Loader />}
       {props.children}
     </NewsContext.Provider>
   )

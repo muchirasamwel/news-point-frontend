@@ -11,7 +11,9 @@ const useNews = () => {
   const [news, setNews] = useState<NewsArr>([] as NewsArr)
   const [search, setSearch] = useState<string>('')
   const { isLoggedIn } = useAuth()
+  const [isLoading, setisLoading] = useState(false)
   const getNews = async () => {
+    setisLoading(true)
     try {
       const response = await axios.post(APIs.NEWS, { search })
       if (response.status == 200) {
@@ -23,6 +25,7 @@ const useNews = () => {
     } catch (e) {
       // show error message
     }
+    setisLoading(false)
   }
 
   useMemo(() => {
@@ -101,6 +104,7 @@ const useNews = () => {
   }, [filteredNews])
 
   return {
+    isLoading,
     news,
     getNews,
     search,
