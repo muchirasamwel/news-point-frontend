@@ -1,0 +1,13 @@
+# How to run docker-compose up --build
+version: '3.7'
+services:
+    news-point-frontend:
+        container_name: news-point-frontend
+        restart: "unless-stopped"
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - .:/app
+        ports:
+            - 3000:3000
